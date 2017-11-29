@@ -3,7 +3,7 @@ package edu.infnet.al.tarefa.model;
 public class Produto {
 	
 	private int id;
-	private Enum categoria;
+	private /*Enum*/String categoria;
 	private double preco;
 	private int codigo;
 	
@@ -14,10 +14,10 @@ public class Produto {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Enum getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Enum categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 	public double getPreco() {

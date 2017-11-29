@@ -4,6 +4,8 @@ public class Item {
 	
 	private int id;
 	private int quantidade;
+	private int idConta;
+	private Produto produto;
 
 	public int getQuantidade() {
 		return quantidade;
@@ -19,6 +21,22 @@ public class Item {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getIdConta() {
+		return idConta;
+	}
+
+	public void setIdConta(int idConta) {
+		this.idConta = idConta;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 	
 	

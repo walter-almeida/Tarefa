@@ -5,7 +5,7 @@ import java.util.List;
 
 import edu.infnet.al.tarefa.model.Funcionario;
 
-public class FuncionarioDAO extends GenerricoDAO<Funcionario>{
+public class FuncionarioDAO extends GenericoDAO<Funcionario>{
 
 	@Override
 	public void incluir(Funcionario entidade) {
@@ -32,7 +32,7 @@ public class FuncionarioDAO extends GenerricoDAO<Funcionario>{
 	}
 
 	@Override
-	public List<Funcionario> listar(int id) {
+	public List<Funcionario> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}

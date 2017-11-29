@@ -4,7 +4,7 @@ import java.util.List;
 
 import edu.infnet.al.tarefa.model.PercentualComissao;
 
-public class PercentualComissaoDAO extends GenerricoDAO<PercentualComissao>{
+public class PercentualComissaoDAO extends GenericoDAO<PercentualComissao>{
 
 	@Override
 	public void incluir(PercentualComissao entidade) {
@@ -31,7 +31,7 @@ public class PercentualComissaoDAO extends GenerricoDAO<PercentualComissao>{
 	}
 
 	@Override
-	public List<PercentualComissao> listar(int id) {
+	public List<PercentualComissao> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}
