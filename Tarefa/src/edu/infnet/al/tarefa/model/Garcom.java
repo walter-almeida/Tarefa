@@ -1,7 +1,7 @@
 package edu.infnet.al.tarefa.model;
 
 public class Garcom extends Funcionario{
-
+	private int idGarcom;
 	private int identidade;
 	private int matricula;
 	
@@ -17,6 +17,12 @@ public class Garcom extends Funcionario{
 	}
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
+	}
+	public int getIdGarcom() {
+		return idGarcom;
+	}
+	public void setIdGarcom(int idGarcom) {
+		this.idGarcom = idGarcom;
 	}
 	
 	

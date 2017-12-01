@@ -27,7 +27,7 @@ public class ContaDAO extends GenericoDAO<Conta>{
 		PreparedStatement comando = null;
 		
 		try {
-			comando = conn.prepareStatement(sql,comando.RETURN_GENERATED_KEYS);
+			comando = conn.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			preencheCampos(comando, entidade);
 			
@@ -100,8 +100,27 @@ public class ContaDAO extends GenericoDAO<Conta>{
 
 	@Override
 	public Conta obter(int id) throws DAOException{
+		String sql = "SELECT * FROM conta WHERE id= ?";
 		
-		return null;
+		Conta conta = new Conta();
+		PreparedStatement comando = null;
+		ResultSet rs = null;
+		try {
+			comando = conn.prepareStatement(sql);
+			
+			comando.setInt(0, id);
+			
+			rs = comando.executeQuery();
+			
+			if(rs.next()) {
+				conta = obterConta(rs);				
+			}
+			
+		} catch (SQLException e) {
+			throw new DAOException("Erro ao buscar uma conta", e);
+		}
+		
+		return conta;
 	}
 
 	@Override
@@ -116,12 +135,7 @@ public class ContaDAO extends GenericoDAO<Conta>{
 			rs = comando.executeQuery();
 			
 			while(rs.next()) {
-				Conta conta = new Conta();
-				conta.setId(rs.getInt("id"));
-				conta.setMesa(rs.getInt("mesa"));
-				conta.setDataHoraAbertura(rs.getDate("dataHoraAbertura"));
-				conta.setDataHoraFechamento(rs.getDate("dataHoraFechamento"));
-				conta.setItens(new ItemDAO().listar(conta.getId()));
+				contas.add(obterConta(rs));				
 			}
 			
 		} catch (SQLException e) {
@@ -139,5 +153,15 @@ public class ContaDAO extends GenericoDAO<Conta>{
 		comando.setDate(2, new Date(entidade.getDataHoraFechamento().getTime()));
 	}
 	
+	public Conta obterConta(ResultSet rs) throws SQLException, DAOException {
+		Conta conta = new Conta();
+		conta.setId(rs.getInt("id"));
+		conta.setMesa(rs.getInt("mesa"));
+		conta.setDataHoraAbertura(rs.getDate("dataHoraAbertura"));
+		conta.setDataHoraFechamento(rs.getDate("dataHoraFechamento"));
+		conta.setItens(new ItemDAO().listar(conta.getId()));
+		
+		return conta;
+	}
 	
 }

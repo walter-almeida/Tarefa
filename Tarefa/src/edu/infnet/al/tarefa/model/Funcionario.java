@@ -1,16 +1,16 @@
 package edu.infnet.al.tarefa.model;
 
-public abstract class Funcionario {
-	private int id;
+public class Funcionario {
+	private int idFuncionario;
 	private String nome;
 	private String endereco;
 	private int telefone;
 	
-	public int getId() {
-		return id;
+	public int getIdFuncionario() {
+		return idFuncionario;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdFuncionario(int id) {
+		this.idFuncionario = id;
 	}
 	public String getNome() {
 		return nome;
