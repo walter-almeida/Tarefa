@@ -9,7 +9,7 @@ import edu.infnet.al.tarefa.exception.DAOException;
 public class Conector {
 	private static Connection connection;
     
-    private static String dsn = "jdbc:mysql://localhost:3306/agendaapp";
+    private static String dsn = "jdbc:mysql://localhost:3306/restauranteapp";
     private static String username = "root";
     private static String password = "root";
     
