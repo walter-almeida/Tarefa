@@ -39,9 +39,8 @@ public class GarcomDAO extends FuncionarioDAO{
 
 	private void preencheCampos(PreparedStatement comando, Funcionario entidade) throws SQLException, DAOException {
 		if(entidade instanceof Garcom) {
-			comando.setInt(0, ((Garcom)entidade).getIdGarcom());
-			comando.setInt(1, ((Garcom)entidade).getIdentidade());
-			comando.setInt(2, ((Garcom)entidade).getMatricula());
+			comando.setInt(0, ((Garcom)entidade).getIdentidade());
+			comando.setInt(1, ((Garcom)entidade).getMatricula());
 		} else {
 			throw new DAOException("Erro ao tentar inserir/alterar outro tipo de funcionário em Garçom",null);
 		}
@@ -58,7 +57,7 @@ public class GarcomDAO extends FuncionarioDAO{
 			comando = conn.prepareStatement(sql);
 			
 			preencheCampos(comando, entidade);
-			comando.setInt(3, ((Garcom)entidade).getIdGarcom());
+			comando.setInt(2, ((Garcom)entidade).getIdGarcom());
 			comando.execute();
 			
 		} catch (SQLException e) {
@@ -147,7 +146,7 @@ public class GarcomDAO extends FuncionarioDAO{
 			}
 			
 		} catch (SQLException e) {
-			throw new DAOException("Erro ao buscar uma lista de garçons", e);
+			throw new DAOException("Erro ao buscar uma lista de garcons", e);
 		}
 		
 		return funcionarios;

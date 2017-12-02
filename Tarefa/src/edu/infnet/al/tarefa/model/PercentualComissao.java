@@ -7,6 +7,7 @@ public class PercentualComissao {
 	private double valor;
 	private Date dataHora;
 	private int id;
+	private int idGarcom;
 	
 	
 	public double getValor() {
@@ -29,6 +30,12 @@ public class PercentualComissao {
 		this.id = id;
 	}
 	
+	public int getIdGarcom() {
+		return idGarcom;
+	}
+	public void setIdGarcom(int idGarcom) {
+		this.idGarcom = idGarcom;
+	}
 	
 	
 	
